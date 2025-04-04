@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Lista de Tarefas - jQuery</title>
+        <link rel="stylesheet" href="style.css" />
+        <style>
+            body {
+                background-color: #1e293b;
+                color: #f1f5f9;
+                font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+                max-width: 800px;
+                margin: 0 auto;
+                padding: 2rem;
+            }
+
+            #todo-list-section {
+                background-color: #334155;
+                padding: 2rem;
+                border-radius: 8px;
+                box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+            }
+
+            input,
+            button {
+                background-color: #475569;
+                border: none;
+                padding: 0.75rem;
+                border-radius: 4px;
+                color: #f1f5f9;
+                margin: 0.5rem 0;
+            }
+
+            button {
+                background-color: #3b82f6;
+                cursor: pointer;
+                transition: background-color 0.3s;
+            }
+
+            button:hover {
+                background-color: #2563eb;
+            }
+
+            #taskList {
+                list-style: none;
+                padding: 0;
+            }
+
+            #taskList li {
+                background-color: #475569;
+                margin: 0.5rem 0;
+                padding: 1rem;
+                border-radius: 4px;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+            }
+
+            .delete-task {
+                color: #ef4444;
+                cursor: pointer;
+            }
+
+            .completed {
+                text-decoration: line-through;
+                opacity: 0.7;
+            }
+
+            a {
+                color: #60a5fa;
+                text-decoration: none;
+            }
+
+            a:hover {
+                color: #93c5fd;
+            }
+        </style>
+    </head>
+    <body>
+        <a href="../index.html" style="display: block; margin-bottom: 20px"
+            >< Voltar para o Hub</a
+        >
+        <h1>Exemplo: Lista de Tarefas Interativa</h1>
+
+        <section id="todo-list-section">
+            <h2>Lista de Tarefas</h2>
+            <input
+                type="text"
+                id="newTask"
+                placeholder="Adicionar nova tarefa..."
+            />
+            <button id="addTaskBtn">Adicionar</button>
+            <ul id="taskList">
+                <li>Exemplo de Tarefa <span class="delete-task">X</span></li>
+                <li class="completed">
+                    Tarefa Concluída <span class="delete-task">X</span>
+                </li>
+            </ul>
+        </section>
+
+        <script
+            src="https://code.jquery.com/jquery-3.7.1.min.js"
+            integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
+            crossorigin="anonymous"
+        ></script>
+        <script src="script.js"></script>
+    </body>
+</html>

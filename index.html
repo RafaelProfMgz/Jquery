@@ -1,0 +1,151 @@
+<!doctype html>
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Projeto jQuery - Componentes</title>
+        <link rel="stylesheet" href="style.css" />
+        <style>
+            /* Estilos adicionais para a página index */
+            body {
+                text-align: center;
+                background-color: #1a1a1a;
+                color: #f1f5f9;
+                font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+                margin: 0;
+                overflow: hidden;
+            }
+
+            canvas {
+                position: fixed;
+                top: 0;
+                left: 0;
+                z-index: -1;
+            }
+
+            h1 {
+                margin-top: 40px;
+                font-size: 2.5em;
+                color: #f1f5f9;
+                text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+            }
+
+            p {
+                color: #94a3b8;
+                font-size: 1.1em;
+                margin-bottom: 30px;
+            }
+
+            .nav-hub ul {
+                list-style: none;
+                padding: 0;
+                margin-top: 30px;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                gap: 15px;
+            }
+
+            .nav-hub a {
+                display: inline-block;
+                padding: 15px 30px;
+                background-color: #334155;
+                color: #f1f5f9;
+                text-decoration: none;
+                border-radius: 8px;
+                transition: all 0.3s ease;
+                min-width: 250px;
+                font-weight: 500;
+                box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            }
+
+            .nav-hub a:hover {
+                background-color: #475569;
+                transform: translateY(-2px);
+                box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2);
+            }
+        </style>
+    </head>
+    <body>
+        <canvas id="starfield"></canvas>
+        <h1>Exemplos de Componentes com jQuery</h1>
+        <p>Navegue para ver cada componente em ação:</p>
+
+        <nav class="nav-hub">
+            <ul>
+                <li><a href="./dropdown/dropdown.html">1. Menu Dropdown</a></li>
+                <li><a href="./lista/lista.html">2. Lista de Tarefas</a></li>
+                <li>
+                    <a href="./formulario/formulario.html"
+                        >3. Formulário com Validação</a
+                    >
+                </li>
+                <li>
+                    <a href="./carrosel/carrosel.html"
+                        >4. Carrosel de Imagens</a
+                    >
+                </li>
+                <li>
+                    <a href="./galeria/galeria.html"
+                        >5. Galeria com Miniaturas</a
+                    >
+                </li>
+            </ul>
+        </nav>
+
+        <script
+            src="https://code.jquery.com/jquery-3.7.1.min.js"
+            integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
+            crossorigin="anonymous"
+        ></script>
+        <script src="script.js"></script>
+        <script>
+            $(document).ready(function () {
+                const canvas = document.getElementById("starfield");
+                const ctx = canvas.getContext("2d");
+
+                canvas.width = window.innerWidth;
+                canvas.height = window.innerHeight;
+
+                const stars = [];
+                const numStars = 200;
+
+                for (let i = 0; i < numStars; i++) {
+                    stars.push({
+                        x: Math.random() * canvas.width,
+                        y: Math.random() * canvas.height,
+                        size: Math.random() * 2,
+                        speed: Math.random() * 3,
+                    });
+                }
+
+                function animate() {
+                    ctx.fillStyle = "#1a1a1a";
+                    ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+                    ctx.fillStyle = "#ffffff";
+                    stars.forEach((star) => {
+                        ctx.beginPath();
+                        ctx.arc(star.x, star.y, star.size, 0, Math.PI * 2);
+                        ctx.fill();
+
+                        star.y += star.speed;
+                        if (star.y > canvas.height) {
+                            star.y = 0;
+                            star.x = Math.random() * canvas.width;
+                        }
+                    });
+
+                    requestAnimationFrame(animate);
+                }
+
+                animate();
+
+                $(window).resize(function () {
+                    canvas.width = window.innerWidth;
+                    canvas.height = window.innerHeight;
+                });
+            });
+        </script>
+    </body>
+</html>

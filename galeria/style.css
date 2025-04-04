@@ -1,0 +1,41 @@
+body { font-family: sans-serif; padding: 20px; }
+h1, h2 { color: #333; }
+h2 { border-bottom: 1px solid #eee; padding-bottom: 5px; margin-bottom: 15px; }
+section { margin-bottom: 30px; max-width: 600px; margin-left: auto; margin-right: auto; } /* Centraliza seção */
+
+/* --- Estilos específicos da Galeria --- */
+#gallery-main {
+    margin-bottom: 15px;
+    text-align: center;
+    border: 1px solid #ddd;
+    padding: 10px;
+    background-color: #f8f8f8;
+    min-height: 370px; /* Ajuste conforme o tamanho da sua imagem maior + padding */
+    display: flex; /* Para centralizar verticalmente se a imagem for menor */
+    align-items: center;
+    justify-content: center;
+}
+#main-image {
+    max-width: 100%;
+    max-height: 400px; /* Limite altura máxima se necessário */
+    height: auto;
+    display: block;
+}
+.thumbnails { text-align: center; }
+.thumbnail {
+    width: 90px;  /* Ajuste tamanho da miniatura */
+    height: 70px; /* Ajuste tamanho da miniatura */
+    margin: 0 5px;
+    cursor: pointer;
+    border: 3px solid transparent; /* Espaço para a borda ativa */
+    opacity: 0.6;
+    transition: opacity 0.3s ease, border-color 0.3s ease;
+    object-fit: cover; /* Garante que a imagem preencha sem distorcer */
+    vertical-align: middle; /* Alinha melhor inline-block elements */
+    background-color: #eee; /* Fundo caso imagem demore a carregar */
+}
+.thumbnail:hover { opacity: 1; }
+.thumbnail.active {
+    border-color: #007bff; /* Cor da borda ativa */
+    opacity: 1;
+}

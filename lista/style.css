@@ -1,0 +1,36 @@
+body { font-family: sans-serif; padding: 20px; }
+h1, h2 { color: #333; }
+h2 { border-bottom: 1px solid #eee; padding-bottom: 5px; margin-bottom: 15px; }
+section { margin-bottom: 30px; }
+
+/* --- Estilos específicos da Lista de Tarefas --- */
+ #todo-list-section input[type="text"] { padding: 8px; margin-right: 5px; }
+ #todo-list-section button { padding: 8px 12px; cursor: pointer; }
+#taskList { list-style: none; padding: 0; margin-top: 15px; max-width: 400px; }
+#taskList li {
+    padding: 10px;
+    border: 1px solid #eee;
+    margin-bottom: 5px;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #fff;
+    transition: background-color 0.2s ease;
+}
+#taskList li:hover { background-color: #f9f9f9; }
+#taskList li.completed {
+    text-decoration: line-through;
+    color: grey;
+    background-color: #f0f0f0;
+}
+.delete-task {
+    cursor: pointer;
+    color: red;
+    font-weight: bold;
+    margin-left: 10px;
+    padding: 2px 5px;
+    border-radius: 3px;
+    user-select: none; /* Evita selecionar o 'X' ao clicar */
+}
+.delete-task:hover { background-color: #ffebeb; }

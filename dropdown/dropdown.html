@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Menu Dropdown - jQuery</title>
+        <link rel="stylesheet" href="style.css" />
+        <style>
+            body {
+                background-color: #1e293b;
+                color: #f1f5f9;
+                font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+            }
+
+            #main-nav {
+                background-color: #334155;
+                padding: 1rem;
+                border-radius: 8px;
+                box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            }
+
+            #main-nav ul {
+                display: flex;
+                gap: 2rem;
+                margin: 0;
+                padding: 0;
+                list-style: none;
+            }
+
+            #main-nav a {
+                color: #f1f5f9;
+                text-decoration: none;
+                padding: 0.5rem 1rem;
+                border-radius: 4px;
+                transition: background-color 0.3s;
+            }
+
+            #main-nav a:hover {
+                background-color: #475569;
+            }
+
+            .dropdown-menu {
+                background-color: #334155;
+                border-radius: 6px;
+                box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            }
+
+            h1 {
+                color: #e2e8f0;
+                margin-bottom: 2rem;
+            }
+
+            .content-box {
+                background-color: #334155;
+                padding: 2rem;
+                border-radius: 8px;
+                margin-top: 2rem;
+            }
+        </style>
+    </head>
+    <body>
+        <a
+            href="../index.html"
+            style="
+                color: #94a3b8;
+                text-decoration: none;
+                display: block;
+                margin-bottom: 20px;
+            "
+            >← Voltar para o Hub</a
+        >
+        <h1>Exemplo: Menu de Navegação Dropdown</h1>
+
+        <nav id="main-nav">
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li class="has-dropdown">
+                    <a href="#">Serviços</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#">Web Design</a></li>
+                        <li><a href="#">Desenvolvimento</a></li>
+                        <li><a href="#">SEO</a></li>
+                    </ul>
+                </li>
+                <li><a href="#">Sobre</a></li>
+                <li class="has-dropdown">
+                    <a href="#">Contato</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#">Email</a></li>
+                        <li><a href="#">Telefone</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+
+        <div class="content-box">
+            Conteúdo da página abaixo do menu para testar o z-index e
+            posicionamento.
+        </div>
+
+        <script
+            src="https://code.jquery.com/jquery-3.7.1.min.js"
+            integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
+            crossorigin="anonymous"
+        ></script>
+        <script src="script.js"></script>
+    </body>
+</html>

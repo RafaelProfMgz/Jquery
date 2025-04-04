@@ -1,0 +1,67 @@
+body {
+    font-family: sans-serif;
+    padding: 20px;
+}
+h1,
+h2 {
+    color: #333;
+}
+h2 {
+    border-bottom: 1px solid #eee;
+    padding-bottom: 5px;
+    margin-bottom: 15px;
+}
+section {
+    margin-bottom: 30px;
+}
+
+/* --- Estilos específicos do Carrosel --- */
+.carousel-container {
+    position: relative;
+    max-width: 600px; /* Controle a largura máxima aqui */
+    margin: 20px auto; /* Centraliza */
+    overflow: hidden;
+    border: 1px solid #ccc;
+    background-color: #f9f9f9; /* Fundo leve */
+}
+.carousel-images {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+    /* A largura total será definida via JS */
+}
+.carousel-images img {
+    /* A largura será definida como 100% do container via JS ou CSS,
+       mas flex-shrink impede que encolham */
+    width: 100%;
+    max-width: 600px;
+    flex-shrink: 0;
+    object-fit: cover;
+    display: block; /* Remove espaço extra abaixo da imagem */
+    height: 100%; /* Ocupa todo espaço verticalmente */
+}
+.prev-btn,
+.next-btn {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    padding: 12px 15px;
+    color: white;
+    background-color: rgba(0, 0, 0, 0.6);
+    border: none;
+    font-size: 20px;
+    font-weight: bold;
+    z-index: 1;
+    border-radius: 3px;
+    transition: background-color 0.3s ease;
+}
+.prev-btn {
+    left: 10px;
+}
+.next-btn {
+    right: 10px;
+}
+.prev-btn:hover,
+.next-btn:hover {
+    background-color: rgba(0, 0, 0, 0.9);
+}

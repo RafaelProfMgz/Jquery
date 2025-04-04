@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Galeria com Miniaturas - jQuery</title>
+        <link rel="stylesheet" href="style.css" />
+        <style>
+            body {
+                background-color: #1e293b;
+                color: #f1f5f9;
+                font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+            }
+
+            a {
+                color: #94a3b8;
+                text-decoration: none;
+                transition: color 0.3s;
+            }
+
+            a:hover {
+                color: #e2e8f0;
+            }
+
+            #gallery-section {
+                max-width: 800px;
+                margin: 2rem auto;
+                padding: 2rem;
+                background-color: #334155;
+                border-radius: 8px;
+                box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+            }
+
+            #gallery-main {
+                margin: 1.5rem 0;
+                border-radius: 4px;
+                overflow: hidden;
+            }
+
+            .thumbnails {
+                display: flex;
+                gap: 1rem;
+                justify-content: center;
+                padding: 1rem 0;
+            }
+
+            .thumbnail {
+                border: 2px solid transparent;
+                border-radius: 4px;
+                cursor: pointer;
+                transition: border-color 0.3s;
+            }
+
+            .thumbnail.active {
+                border-color: #64748b;
+            }
+        </style>
+    </head>
+    <body>
+        <a href="../index.html" style="display: block; margin-bottom: 20px"
+            >< Voltar para o Hub</a
+        >
+        <h1>Exemplo: Galeria de Imagens com Miniaturas</h1>
+
+        <section id="gallery-section">
+            <h2>Galeria com Miniaturas</h2>
+            <div id="gallery-main">
+                <img
+                    id="main-image"
+                    src="../public/assets/meme1.jpeg"
+                    alt="Laranja"
+                />
+            </div>
+            <div class="thumbnails">
+                <img
+                    class="thumbnail active"
+                    src="../public/assets/meme1.jpeg"
+                    alt="Laranja"
+                />
+                <img
+                    class="thumbnail"
+                    src="../public/assets/meme2.jpeg"
+                    alt="Roxo"
+                />
+                <img
+                    class="thumbnail"
+                    src="../public/assets/meme3.jpeg"
+                    alt="Amarelo"
+                />
+                <img
+                    class="thumbnail"
+                    src="../public/assets/meme4.jpeg"
+                    alt="Marrom"
+                />
+            </div>
+        </section>
+
+        <script
+            src="https://code.jquery.com/jquery-3.7.1.min.js"
+            integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
+            crossorigin="anonymous"
+        ></script>
+        <script>
+            $(document).ready(function () {
+                $(".thumbnail").on("click", function () {
+                    const $this = $(this);
+                    const imageSrc = $this.attr("src");
+                    const imageAlt = $this.attr("alt");
+                    const $mainImage = $("#main-image");
+
+                    $mainImage.fadeOut(150, function () {
+                        $mainImage.attr("src", imageSrc).attr("alt", imageAlt);
+                        $mainImage.fadeIn(150);
+                    });
+
+                    $(".thumbnail.active").removeClass("active");
+                    $this.addClass("active");
+                });
+            });
+        </script>
+    </body>
+</html>
